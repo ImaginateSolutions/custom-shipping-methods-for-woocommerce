@@ -1,13 +1,13 @@
 === Custom Shipping Methods for WooCommerce ===
 Contributors: dhruvin, ImagiSol
-Tags: woocommerce, shipping, custom shipping, woocommerce shipping, shipping methods
+Tags: woocommerce, shipping, custom shipping, woocommerce shipping, shipping methods, conditional shipping, advanced shipping, weight based shipping, quantity shipping, shipping fees, fees, volume shipping, table rate shipping, own shipping, local shipping
 Requires at least: 4.4
-Tested up to: 5.7
+Tested up to: 5.8
 Stable tag: trunk
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Add custom shipping methods to WooCommerce.
+Configure advanced shipping options for your WooCommerce store with custom shipping methods. Be it weight based shipping or volume based shipping or quantity based shipping. You can also add custom fees based on certain conditions. Show or hide shipping methods based on Product Categories or Product Tags.
 
 == Description ==
 
@@ -64,6 +64,10 @@ Advanced options include **custom return URL** - it can be used instead of the s
 3. Start by visiting plugin settings at "WooCommerce > Settings > Custom Shipping Methods".
 
 == Changelog ==
+
+= 1.8.0 - 16/09/2021 =
+* Fix - Required Categories and Required Tags rules were not applied for Custom Shipping methods.
+* WC tested up to: 5.6
 
 = 1.7.0 - 09/07/2021 =
 * Dev - Filter added to modify the totals. This can be used to consider totals with taxes.

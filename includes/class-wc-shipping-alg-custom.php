@@ -167,7 +167,7 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 					$exclude = trim( $this->{$exclude} );
 					if ( '' != $include || '' != $exclude ) {
 						$package_products = $this->get_package_products_data( $package['contents'], $condition );
-						if ( ! empty( $package_products ) ) {
+						//if ( ! empty( $package_products ) ) {
 							$package_products   = array_unique( $package_products );
 							$_include           = array_unique( array_map( 'trim', explode( ',', $include ) ) );
 							$_exclude           = array_unique( array_map( 'trim', explode( ',', $exclude ) ) );
@@ -186,7 +186,7 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 							) {
 								return false;
 							}
-						}
+						//}
 					}
 				}
 			}
