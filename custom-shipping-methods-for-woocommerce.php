@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Custom Shipping Methods for WooCommerce
- * Plugin URI: https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/
+ * Plugin URI: https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/
  * Description: Add custom shipping methods to WooCommerce.
  * Version: 1.8.0
  * Author: Imaginate Solutions
@@ -155,7 +155,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 			$custom_links   = array();
 			$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_custom_shipping_methods' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 			if ( 'custom-shipping-methods-for-woocommerce.php' === basename( __FILE__ ) ) {
-				$custom_links[] = '<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/">' .
+				$custom_links[] = '<a target="_blank" href="https://imaginate-solutions.com/docs/docs/understanding-the-functionality-of-the-cost-table/">' .
 				__( 'Unlock All', 'custom-shipping-methods-for-woocommerce' ) . '</a>';
 			}
 			return array_merge( $custom_links, $links );
