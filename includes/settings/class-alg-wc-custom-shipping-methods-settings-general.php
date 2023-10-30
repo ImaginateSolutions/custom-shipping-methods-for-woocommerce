@@ -149,7 +149,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods_Settings_General' ) ) :
 						sprintf(
 							// translators: %s Pro plugin link.
 							__( 'You will need %s plugin to set icons and descriptions.', 'custom-shipping-methods-for-woocommerce' ),
-							'<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/">' .
+							'<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/">' .
 							__( 'Custom Shipping Methods for WooCommerce Pro', 'custom-shipping-methods-for-woocommerce' ) . '</a>'
 						)
 					),
