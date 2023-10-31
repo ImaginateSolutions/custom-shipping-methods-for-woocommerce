@@ -133,6 +133,9 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		 * @since   1.2.1
 		 */
 		public function admin() {
+
+			//HPOS compatibility
+			add_action( 'before_woocommerce_init', array( $this, 'wau_declare_hpos_compatibility' ) );
 			// Action links.
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 			// Settings.
@@ -142,6 +145,13 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 				add_action( 'admin_init', array( $this, 'version_updated' ) );
 			}
 		}
+		//HPOS Compatibility
+		public function wau_declare_hpos_compatibility() {
+			if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+				
+		}
+	}
 
 		/**
 		 * Show action links on the plugin screen.
