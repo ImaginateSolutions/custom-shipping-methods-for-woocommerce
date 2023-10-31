@@ -18,9 +18,18 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods_Settings_General' ) ) :
 	 * General Settings Class.
 	 */
 	class Alg_WC_Custom_Shipping_Methods_Settings_General extends Alg_WC_Custom_Shipping_Methods_Settings_Section {
-		protected $id;		//unique identifier for the object or item
-		protected $desc;	//details associated with object or item.
 
+		/**
+ 		* Unique identifier for the shipping method object.
+ 		* @var string $id
+ 		*/
+		protected $id;
+		/**
+ 		* Details associated with the shipping method object.
+ 		* @var string $desc
+ 		*/
+		protected $desc;
+	
 		/**
 		 * Constructor.
 		 *

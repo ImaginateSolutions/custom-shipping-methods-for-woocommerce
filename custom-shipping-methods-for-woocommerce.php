@@ -116,12 +116,16 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		}
 
 		/**
+ 		* Core instance for custom shipping methods functionality.
+ 		* @var object $core
+ 		*/
+  		protected $core;
+		/**
 		 * Include required core files used in admin and on the frontend.
 		 *@@ -121,6 +121,7 @@ public function is_plugin_active( $plugin ) {
 		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
-		protected $core;	//reference to the core components of plugin.
 		public function includes() {
 			// Core.
 			$this->core = require_once 'includes/class-alg-wc-custom-shipping-methods-core.php';
@@ -131,7 +135,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		 * Admin.
 		 *
 		 * @version 1.6.1
-		 * @since   1.2.1
+		 * @since   1.9.0
 		 */
 		public function admin() {
 
