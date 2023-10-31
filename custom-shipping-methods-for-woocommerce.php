@@ -121,6 +121,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
+		protected $core;
 		public function includes() {
 			// Core.
 			$this->core = require_once 'includes/class-alg-wc-custom-shipping-methods-core.php';
@@ -136,7 +137,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 
 			//HPOS compatibility
 			add_action( 'before_woocommerce_init', array( $this, 'wau_declare_hpos_compatibility' ) );
-			// Action links.
+			//Action links.
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 			// Settings.
 			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );

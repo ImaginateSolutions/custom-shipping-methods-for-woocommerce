@@ -18,7 +18,37 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 	 * Custom Shipping Method Class.
 	 */
 	class WC_Shipping_Alg_Custom extends WC_Shipping_Method {
-
+		protected $alg_wc_csm_icon;
+		protected $alg_wc_csm_desc;
+		protected $cost;
+		protected $min_cost_limit;
+		protected $max_cost_limit; 
+		protected $free_shipping_min_amount;
+		protected $free_shipping_products;
+		protected $type;
+		protected $min_cost;
+		protected $max_cost;
+		protected $min_weight;
+		protected $max_weight;
+		protected $min_volume;
+		protected $max_volume;
+		protected $min_qty;
+		protected $min_distance;
+		protected $max_distance;
+		protected $distance_calculation;
+		protected $incl_product;
+		protected $excl_product;
+		protected $incl_product_cat;
+		protected $excl_product_cat;
+		protected $incl_product_tag;
+		protected $excl_product_tag;
+		protected $require_type;
+		protected $limit_calc;
+		protected $return_url;
+		protected $max_qty;
+		protected $desc;
+		
+		
 		/**
 		 * Fee Cost.
 		 *
