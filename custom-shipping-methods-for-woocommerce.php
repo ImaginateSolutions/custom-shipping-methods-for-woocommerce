@@ -117,11 +117,11 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 
 		/**
 		 * Include required core files used in admin and on the frontend.
-		 *
+		 *@@ -121,6 +121,7 @@ public function is_plugin_active( $plugin ) {
 		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
-		protected $core;
+		protected $core;	//reference to the core components of plugin.
 		public function includes() {
 			// Core.
 			$this->core = require_once 'includes/class-alg-wc-custom-shipping-methods-core.php';

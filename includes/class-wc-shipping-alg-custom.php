@@ -18,6 +18,11 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 	 * Custom Shipping Method Class.
 	 */
 	class WC_Shipping_Alg_Custom extends WC_Shipping_Method {
+
+		/**
+ * Shipping Method Configuration Variables
+ * These variables define various configuration options and criteria for a shipping method.
+ */
 		protected $alg_wc_csm_icon;
 		protected $alg_wc_csm_desc;
 		protected $cost;
