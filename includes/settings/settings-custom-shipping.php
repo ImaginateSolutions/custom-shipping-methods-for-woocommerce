@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $availability_extra_desc_zero  = ' ' . __( 'Ignored if set to zero.', 'custom-shipping-methods-for-woocommerce' );
 $availability_extra_desc_blank = ' ' . __( 'Ignored if empty.', 'custom-shipping-methods-for-woocommerce' );
-$pro_link                      = '<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/">Custom Shipping Methods for WooCommerce Pro</a>';
+$pro_link                      = '<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/">Custom Shipping Methods for WooCommerce Pro</a>';
 $pro_desc_short                = sprintf( '.<br><em>This shortcode is available in %s plugin only</em>', $pro_link );
 $pro_desc                      = sprintf( 'This option is available in %s plugin only.', $pro_link );
 
@@ -31,14 +31,14 @@ $available_shortcodes = apply_filters(
 		sprintf(
 			// translators: %s Round Shortcode Example.
 			' (' . __( 'check examples %s', 'custom-shipping-methods-for-woocommerce' ) . ')',
-			'<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/#round-shortcode">' .
+			'<a target="_blank" href="https://imaginate-solutions.com/docs/docs/understanding-the-functionality-of-the-cost-table/">' .
 			__( 'here', 'custom-shipping-methods-for-woocommerce' ) . '</a>'
 		),
 		'[costs_table prop="qty" table="1-10|10-5|20-0"]' => __( 'costs table', 'custom-shipping-methods-for-woocommerce' ) .
 		sprintf(
 			// translators: %s Costs Table Example.
 			' (' . __( 'check examples %s', 'custom-shipping-methods-for-woocommerce' ) . ')',
-			'<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/#costs_table">' .
+			'<a target="_blank" href="https://imaginate-solutions.com/docs/docs/understanding-the-functionality-of-the-cost-table/">' .
 			__( 'here', 'custom-shipping-methods-for-woocommerce' ) . '</a>'
 		) .
 			apply_filters( 'alg_wc_custom_shipping_methods_settings', $pro_desc_short ),
@@ -46,7 +46,7 @@ $available_shortcodes = apply_filters(
 		sprintf(
 			// translators: %s Distance Shortcode Example.
 			' (' . __( 'check examples %s', 'custom-shipping-methods-for-woocommerce' ) . ')',
-			'<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/#distance-shortcode">' .
+			'<a target="_blank" href="https://imaginate-solutions.com/docs/docs/understanding-the-functionality-of-the-cost-table/">' .
 			__( 'here', 'custom-shipping-methods-for-woocommerce' ) . '</a>'
 		) .
 			apply_filters( 'alg_wc_custom_shipping_methods_settings', $pro_desc_short ),

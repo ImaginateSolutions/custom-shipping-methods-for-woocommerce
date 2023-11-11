@@ -18,7 +18,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods_Core' ) ) :
 	 * Shipping Methods Core.
 	 */
 	class Alg_WC_Custom_Shipping_Methods_Core {
-
+		
 		/**
 		 * Constructor.
 		 *

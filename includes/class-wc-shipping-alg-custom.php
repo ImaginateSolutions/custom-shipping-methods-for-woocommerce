@@ -20,11 +20,156 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 	class WC_Shipping_Alg_Custom extends WC_Shipping_Method {
 
 		/**
+		 * Description for the shipping method.
+		 * @var string $alg_wc_csm_desc
+		 */	
+		public $alg_wc_csm_desc;
+		/**
+		* Icon for the shipping method (if applicable).
+ 		* @var string $alg_wc_csm_icon 
+ 		*/
+		public $alg_wc_csm_icon;
+		/**
+		 * Base cost for the shipping method.
+		 * @var float $cost
+		 */
+		public $cost;
+		/**
+		 * Minimum cost required for this shipping method to be available.
+		 * @var float $min_cost_limit
+		 */
+		public $min_cost_limit;
+		/**
+		 * Maximum cost allowed for this shipping method to be available.
+		 * @var float $max_cost_limit
+		 */
+		public $max_cost_limit;
+		/**
+		 * Minimum amount for free shipping to be available.
+		 * @var float $free_shipping_min_amount
+		 */
+		public $free_shipping_min_amount;
+		/**
+		 * List of products eligible for free shipping.
+		 * @var string $free_shipping_products
+		 */
+		public $free_shipping_products;
+		/**
+		 * Type of the shipping method (e.g., flat rate, weight-based, etc.).
+		 * @var string $type
+		 */
+		public $type;
+		/**
+		 * Minimum cost for the shipping method.
+		 * @var float $min_cost
+		 */
+		public $min_cost;
+		/**
+		 * Maximum cost for the shipping method.
+		 * @var float $max_cost
+		 */
+		public $max_cost;
+		/**
+		 * Minimum weight for the shipping method.
+		 * @var float $min_weight
+		 */
+		public $min_weight;
+		/**
+		 * Maximum weight for the shipping method.
+		 * @var float $max_weight
+		 */
+		public $max_weight;
+		/**
+		 * Minimum volume for the shipping method.
+		 * @var float $min_volume
+		 */
+		public $min_volume;
+		/**
+		 * Maximum volume for the shipping method.
+		 * @var float $max_volume
+		 */
+		public $max_volume;
+		/**
+		 * Minimum quantity required for this shipping method.
+		 * @var int $min_qty
+		 */
+		public $min_qty;
+		/**
+		 * Minimum distance for the shipping method.
+		 * @var float $min_distance
+		 */
+		public $min_distance;
+		/**
+		 * Maximum distance for the shipping method.
+		 * @var float $max_distance
+		 */
+		public $max_distance;
+		/**
+		 * Method used to calculate distance.
+		 * @var string $distance_calculation
+		 */
+		public $distance_calculation;
+		/**
+		 * List of products included for this shipping method.
+		 * @var string $incl_product
+		 */
+		public $incl_product;
+		/**
+		 * List of products excluded for this shipping method.
+		 * @var string $excl_product
+		 */
+		public $excl_product;
+		/**
+		 * List of product categories included for this shipping method.
+		 * @var string $incl_product_cat
+		 */
+		public $incl_product_cat;
+		/**
+		 * List of product categories excluded for this shipping method.
+		 * @var string $excl_product_cat
+		 */
+		public $excl_product_cat;
+		/**
+		 * List of product tags included for this shipping method.
+		 * @var string $incl_product_tag
+		 */
+		public $incl_product_tag;
+		/**
+		 * List of product tags excluded for this shipping method.
+		 * @var string $excl_product_tag
+		 */
+		public $excl_product_tag;
+		/**
+		 * Requirement type for this shipping method.
+		 * @var string $require_type
+		 */
+		public $require_type;
+		/**
+		 * Calculation method for cost/limit.
+		 * @var string $limit_calc
+		 */
+		public $limit_calc;
+		/**
+		 * URL to return to after selecting this shipping method.
+		 * @var string $return_url
+		 */
+		public $return_url;
+		/**
+		 * Maximum quantity allowed for this shipping method.
+		 * @var int $max_qty
+		 */
+		public $max_qty;
+		/**
+		 * A general description or comment about the shipping method.
+		 * @var string $desc
+		 */
+		public $desc;
+		/**
 		 * Fee Cost.
 		 *
 		 * @var string cost passed to [fee] shortcode
 		 */
-		protected $fee_cost = '';
+		public $fee_cost = '';
 
 		/**
 		 * Constructor.

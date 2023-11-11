@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Custom Shipping Methods for WooCommerce
- * Plugin URI: https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/
+ * Plugin URI: https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/
  * Description: Add custom shipping methods to WooCommerce.
  * Version: 1.8.0
  * Author: Imaginate Solutions
@@ -116,8 +116,12 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		}
 
 		/**
+ 		* Core instance for custom shipping methods functionality.
+ 		* @var object $core
+ 		*/
+  		protected $core;
+		/**
 		 * Include required core files used in admin and on the frontend.
-		 *
 		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
@@ -130,10 +134,13 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		 * Admin.
 		 *
 		 * @version 1.6.1
-		 * @since   1.2.1
+		 * @since   1.9.0
 		 */
 		public function admin() {
-			// Action links.
+
+			//HPOS compatibility
+			add_action( 'before_woocommerce_init', array( $this, 'wau_declare_hpos_compatibility' ) );
+			//Action links.
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 			// Settings.
 			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
@@ -142,6 +149,13 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 				add_action( 'admin_init', array( $this, 'version_updated' ) );
 			}
 		}
+		//HPOS Compatibility
+		public function wau_declare_hpos_compatibility() {
+			if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+				
+		}
+	}
 
 		/**
 		 * Show action links on the plugin screen.
@@ -155,7 +169,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 			$custom_links   = array();
 			$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_custom_shipping_methods' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 			if ( 'custom-shipping-methods-for-woocommerce.php' === basename( __FILE__ ) ) {
-				$custom_links[] = '<a target="_blank" href="https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/">' .
+				$custom_links[] = '<a target="_blank" href="https://imaginate-solutions.com/docs/docs/understanding-the-functionality-of-the-cost-table/">' .
 				__( 'Unlock All', 'custom-shipping-methods-for-woocommerce' ) . '</a>';
 			}
 			return array_merge( $custom_links, $links );
