@@ -3,13 +3,13 @@
  * Plugin Name: Custom Shipping Methods for WooCommerce
  * Plugin URI: https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/
  * Description: Add custom shipping methods to WooCommerce.
- * Version: 1.8.0
+ * Version: 1.9.0
  * Author: Imaginate Solutions
  * Author URI: https://imaginate-solutions.com
  * Text Domain: custom-shipping-methods-for-woocommerce
  * Domain Path: /langs
- * Copyright: © 2021 Imaginate Solutions
- * WC tested up to: 5.6
+ * Copyright: © 2023 Imaginate Solutions
+ * WC tested up to: 8.2
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
@@ -26,7 +26,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 	 * Main Alg_WC_Custom_Shipping_Methods Class
 	 *
 	 * @class   Alg_WC_Custom_Shipping_Methods
-	 * @version 1.8.0
+	 * @version 1.9.0
 	 * @since   1.0.0
 	 */
 	final class Alg_WC_Custom_Shipping_Methods {
@@ -37,7 +37,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '1.8.0';
+		public $version = '1.9.0';
 
 		/**
 		 * Single instance of class.
@@ -46,6 +46,12 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		 * @since 1.0.0
 		 */
 		protected static $_instance = null;
+
+		/**
+ 		* Core instance for custom shipping methods functionality.
+ 		* @var object $core
+ 		*/
+		protected $core = null;
 
 		/**
 		 * Main Alg_WC_Custom_Shipping_Methods Instance
@@ -116,11 +122,6 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		}
 
 		/**
- 		* Core instance for custom shipping methods functionality.
- 		* @var object $core
- 		*/
-  		protected $core;
-		/**
 		 * Include required core files used in admin and on the frontend.
 		 * @version 1.1.0
 		 * @since   1.0.0
@@ -139,7 +140,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		public function admin() {
 
 			//HPOS compatibility
-			add_action( 'before_woocommerce_init', array( $this, 'wau_declare_hpos_compatibility' ) );
+			add_action( 'before_woocommerce_init', array( $this, 'csm_declare_hpos_compatibility' ) );
 			//Action links.
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 			// Settings.
@@ -149,13 +150,17 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 				add_action( 'admin_init', array( $this, 'version_updated' ) );
 			}
 		}
-		//HPOS Compatibility
-		public function wau_declare_hpos_compatibility() {
+
+		/**
+		 * Declare compatibility with HPOS
+		 *
+		 * @return void
+		 */
+		public function csm_declare_hpos_compatibility() {
 			if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
-				
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );		
+			}
 		}
-	}
 
 		/**
 		 * Show action links on the plugin screen.
@@ -169,7 +174,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 			$custom_links   = array();
 			$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_custom_shipping_methods' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 			if ( 'custom-shipping-methods-for-woocommerce.php' === basename( __FILE__ ) ) {
-				$custom_links[] = '<a target="_blank" href="https://imaginate-solutions.com/docs/docs/understanding-the-functionality-of-the-cost-table/">' .
+				$custom_links[] = '<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/">' .
 				__( 'Unlock All', 'custom-shipping-methods-for-woocommerce' ) . '</a>';
 			}
 			return array_merge( $custom_links, $links );

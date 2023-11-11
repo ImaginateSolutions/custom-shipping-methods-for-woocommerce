@@ -1,17 +1,20 @@
-=== Custom Shipping Methods for WooCommerce ===
+=== Custom Shipping Methods for WooCommerce - Create Weight based Shipping, Conditional Shipping, Table Rate Shipping and much more ===
 Contributors: dhruvin, ImagiSol
-Tags: woocommerce, shipping, custom shipping, woocommerce shipping, shipping methods, conditional shipping, advanced shipping, weight based shipping, quantity shipping, shipping fees, fees, volume shipping, table rate shipping, own shipping, local shipping
+Tags: woocommerce, shipping, custom shipping, weight based shipping, conditional shipping, woocommerce shipping, shipping methods, advanced shipping, quantity shipping, shipping fees, fees, volume shipping, table rate shipping, own shipping, local shipping
 Requires at least: 4.4
-Tested up to: 5.8
+Requires PHP: 5.6
+Tested up to: 6.4
 Stable tag: trunk
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Configure advanced shipping options for your WooCommerce store with custom shipping methods. Be it weight based shipping or volume based shipping or quantity based shipping. You can also add custom fees based on certain conditions. Show or hide shipping methods based on Product Categories or Product Tags.
+Configure advanced shipping options for your WooCommerce store with custom shipping methods. Be it weight based shipping or volume based shipping or quantity based shipping or any other conditional shipping. You can also add custom fees based on certain conditions. Show or hide shipping methods based on Product Categories or Product Tags.
 
 == Description ==
 
-**Custom Shipping Methods for WooCommerce** plugin lets you add (multiple) custom shipping methods to WooCommerce.
+**[Custom Shipping Methods for WooCommerce](https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/)** plugin lets you add (multiple) custom shipping methods to WooCommerce.
+
+= Shortcodes for cost calculation =
 
 In each custom shipping method's **cost calculation formula** you can use these shortcodes:
 
@@ -21,6 +24,13 @@ In each custom shipping method's **cost calculation formula** you can use these 
 * **`[volume]`** - total cart items **volume**,
 * **`[fee]`** - percentage based **fees**,
 * **`[round]`** - **rounding**.
+
+> I had been looking for a plugin for hours and days that would give me the options I was looking for and this has succeeded. In addition to all that, i needed an extra option and these guys added it overnight, impeccable attention, friendly and fast. Sincerely anything i need about plugins I will talk to them to see if they have it or if they can develop it.
+>
+> **Everything I need and fantastic support!**
+> [Yeray](https://wordpress.org/support/topic/everything-i-need-and-fantastic-support/)
+
+= Rules for each shipping method =
 
 In addition, for each custom shipping method, you can optionally set these **method availability** options:
 
@@ -32,6 +42,8 @@ In addition, for each custom shipping method, you can optionally set these **met
 * required and excluded cart **product categories**,
 * required and excluded cart **product tags**.
 
+= Costs based on Product Shipping Class =
+
 Optionally costs can be added based on the **product shipping class**:
 
 * costs per **product shipping class** and for **no shipping class**,
@@ -40,11 +52,14 @@ Optionally costs can be added based on the **product shipping class**:
 
 Advanced options include **custom return URL** - it can be used instead of the standard "Order received" page.
 
+In addition to the above, you can also create customized templates for icons that would be displayed besides the shipping method title.
+Also, add custom text with HTML for Free Shipping i.e Zero cost.
+
 = Premium Version =
 
-[Custom Shipping Methods for WooCommerce Pro](https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/) plugin version also has:
+[Custom Shipping Methods for WooCommerce Pro](https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/) plugin version also has:
 
-* **`[costs_table]`** shortcode for **table rate shipping**,
+* **`[costs_table]`** shortcode for **table rate shipping** - Costs are calculated using Google Distance Matrix API,
 * **`[distance]`** shortcode for **distance based cost calculation**,
 * options to set **free shipping minimum order amount**,
 * options to set **free shipping products**,
@@ -52,10 +67,22 @@ Advanced options include **custom return URL** - it can be used instead of the s
 * options to set **min and max distance availability**,
 * options to set custom shipping methods' frontend **icons** and **descriptions**.
 
+= Our other plugins =
+
+* [Custom Payment Gateways for WooCommerce](https://imaginate-solutions.com/downloads/custom-payment-gateways-for-woocommerce/) - Create custom payment gateways for your WooCommerce store to add more payment options for the user to choose from.
+
+* [Payment Gateways by User Role](https://imaginate-solutions.com/downloads/payment-gateways-by-user-roles-for-woocommerce/) - Allow payment gateways to be available or not available for only particular user roles.
+
+* [WooCommerce Addon Uploads](https://imaginate-solutions.com/downloads/woocommerce-addon-uploads/) - Create a print on demand store by allowing users to upload their files when adding products to cart on your WooCommerce store.
+
+* [Variations Radio Buttons for WooCommerce](https://imaginate-solutions.com/downloads/variations-radio-buttons-for-woocommerce/) - Convert your variations dropdown into radio buttons there by allowing customers a much better user experience and speeding up the checkout process.
+
+* [WooCommerce Variations Reports](https://imaginate-solutions.com/downloads/woocommerce-variations-reports/) - Get a report of how your variations sales are happening on your WooCommerce Store.
+
 = Feedback =
 
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
-* [Visit plugin site](https://wpfactory.com/item/custom-shipping-methods-for-woocommerce/).
+* [Visit plugin site](https://imaginate-solutions.com/contact-us/).
 
 == Installation ==
 
@@ -63,7 +90,21 @@ Advanced options include **custom return URL** - it can be used instead of the s
 2. Activate the plugin through the "Plugins" menu in WordPress.
 3. Start by visiting plugin settings at "WooCommerce > Settings > Custom Shipping Methods".
 
+== Screenshots ==
+
+1. Custom Shipping Global Settings.
+2. Icons and Description settings.
+3. Individual custom shipping options.
+4. Other rules part of Pro.
+5. Cost, Weight, Volume and Quantity rules.
+6. Products, Categories and Tags rules.
+7. Shipping Class costs.
+
 == Changelog ==
+
+= 1.9.0 - 11/11/2023 =
+* Compatibility with HPOS
+* Compatibility with PHP 8.2
 
 = 1.8.0 - 16/09/2021 =
 * Fix - Required Categories and Required Tags rules were not applied for Custom Shipping methods.
