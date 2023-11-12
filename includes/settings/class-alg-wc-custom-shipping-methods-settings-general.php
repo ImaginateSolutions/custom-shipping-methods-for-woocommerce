@@ -23,12 +23,13 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods_Settings_General' ) ) :
  		* Unique identifier for the shipping method object.
  		* @var string $id
  		*/
-		protected $id;
+		public $id;
+
 		/**
  		* Details associated with the shipping method object.
  		* @var string $desc
  		*/
-		protected $desc;
+		public $desc;
 	
 		/**
 		 * Constructor.

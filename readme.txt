@@ -102,6 +102,9 @@ Also, add custom text with HTML for Free Shipping i.e Zero cost.
 
 == Changelog ==
 
+= 1.9.1 - 12/11/2023 =
+* Fixed an issue occuring due to inaccessible class
+
 = 1.9.0 - 11/11/2023 =
 * Compatibility with HPOS
 * Compatibility with PHP 8.2
