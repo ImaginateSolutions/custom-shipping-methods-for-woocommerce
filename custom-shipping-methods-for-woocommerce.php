@@ -123,6 +123,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 
 		/**
 		 * Include required core files used in admin and on the frontend.
+		 *
 		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
@@ -174,7 +175,7 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 			$custom_links   = array();
 			$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_custom_shipping_methods' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 			if ( 'custom-shipping-methods-for-woocommerce.php' === basename( __FILE__ ) ) {
-				$custom_links[] = '<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/">' .
+				$custom_links[] = '<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/?utm_source=wporg&utm_medium=unlock&utm_campaign=unlock">' .
 				__( 'Unlock All', 'custom-shipping-methods-for-woocommerce' ) . '</a>';
 			}
 			return array_merge( $custom_links, $links );

@@ -18,6 +18,7 @@ if ( ! class_exists( 'Alg_WC_Settings_Custom_Shipping_Methods' ) ) :
 	 * Custom Shipping Methods Class.
 	 */
 	class Alg_WC_Settings_Custom_Shipping_Methods extends WC_Settings_Page {
+
 		/**
 		 * Constructor.
 		 *

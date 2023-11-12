@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $availability_extra_desc_zero  = ' ' . __( 'Ignored if set to zero.', 'custom-shipping-methods-for-woocommerce' );
 $availability_extra_desc_blank = ' ' . __( 'Ignored if empty.', 'custom-shipping-methods-for-woocommerce' );
-$pro_link                      = '<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/">Custom Shipping Methods for WooCommerce Pro</a>';
+$pro_link                      = '<a target="_blank" href="https://imaginate-solutions.com/downloads/custom-shipping-methods-for-woocommerce/?utm_source=wporg&utm_medium=unlock&utm_campaign=settings">Custom Shipping Methods for WooCommerce Pro</a>';
 $pro_desc_short                = sprintf( '.<br><em>This shortcode is available in %s plugin only</em>', $pro_link );
 $pro_desc                      = sprintf( 'This option is available in %s plugin only.', $pro_link );
 
