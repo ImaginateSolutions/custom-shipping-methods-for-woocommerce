@@ -155,6 +155,11 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 		 */
 		public $return_url;
 		/**
+		 * Calculate shipping before discount coupon is applied
+		 * @var string $use_before_coupon
+		 */
+		public $use_before_coupon;
+		/**
 		 * Maximum quantity allowed for this shipping method.
 		 * @var int $max_qty
 		 */
@@ -232,6 +237,7 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 			$this->excl_product_tag         = $this->get_option( 'excl_product_tag' );
 			$this->require_type             = $this->get_option( 'require_type', 'one' );
 			$this->limit_calc               = $this->get_option( 'limit_calc', 'class' );
+			$this->use_before_coupon        = $this->get_option( 'use_before_coupon', 'no' );
 			$this->return_url               = $this->get_option( 'return_url', '' );
 		}
 
@@ -511,7 +517,7 @@ if ( ! class_exists( 'WC_Shipping_Alg_Custom' ) ) :
 							'alg_wc_custom_shipping_methods_evaluate_cost_args_class',
 							array(
 								'qty'      => array_sum( wp_list_pluck( $products, 'quantity' ) ),
-								'cost'     => array_sum( wp_list_pluck( $products, 'line_total' ) ),
+								'cost'     => array_sum( wp_list_pluck( $products, 'yes' === $this->use_before_coupon ? 'line_subtotal' : 'line_total' ) ),
 								'products' => $products,
 							),
 							$products

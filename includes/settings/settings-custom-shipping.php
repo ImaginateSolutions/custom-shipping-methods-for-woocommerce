@@ -445,6 +445,12 @@ $settings = array_merge(
 			'default'     => '',
 			'description' => __( 'Advanced settings.', 'custom-shipping-methods-for-woocommerce' ),
 		),
+		'use_before_coupon' => array(
+			'title'       => __( 'Calculate shipping before discount coupon is applied', 'custom-shipping-methods-for-woocommerce' ),
+			'type'        => 'checkbox',
+			'default'     => '',
+			'desc_tip'    => true,
+		),
 		'return_url' => array(
 			'title'       => __( 'Custom return URL', 'custom-shipping-methods-for-woocommerce' ),
 			'type'        => 'text',
