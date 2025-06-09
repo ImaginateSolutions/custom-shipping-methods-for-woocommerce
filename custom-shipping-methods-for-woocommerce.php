@@ -20,6 +20,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+/**
+ * Handles plugin activation: sets install time for admin review notice logic.
+ */
+function csm_handle_plugin_activation() {
+	if ( ! get_option( 'csm_review_notice_install_time' ) ) {
+		update_option( 'csm_review_notice_install_time', time() );
+	}
+}
+register_activation_hook( __FILE__, 'csm_handle_plugin_activation' );
+
+
 if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 
 	/**
@@ -150,6 +161,9 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 			if ( get_option( 'alg_wc_custom_shipping_methods_version', '' ) !== $this->version ) {
 				add_action( 'admin_init', array( $this, 'version_updated' ) );
 			}
+			// Admin Review Notice: Shows after (default) 1 min, unless dismissed.
+			add_action( 'admin_notices', array( $this, 'csm_maybe_show_review_notice' ) );
+			add_action( 'wp_ajax_csm_dismiss_review_notice', array( $this, 'csm_dismiss_review_notice' ) );
 		}
 
 		/**
@@ -225,7 +239,61 @@ if ( ! class_exists( 'Alg_WC_Custom_Shipping_Methods' ) ) :
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
 		}
+		/**
+		 * Show a dismissible admin review notice after a certain time from installation.
+		 * Only for admins, only if not dismissed, and only after the specified delay.
+		 *
+		 * @version 1.9.2
+		 * @since   1.9.2
+		 * @return  void
+		 */
+		public function csm_maybe_show_review_notice() {
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+			if ( get_option( 'csm_review_notice_dismissed' ) ) {
+				return;
+			}
+			$install_time = get_option( 'csm_review_notice_install_time', 0 );
+			if ( ! $install_time || ( time() - intval( $install_time ) < 604800 ) ) { // 604800 = 1 week
+				return;
+			}
+			$nonce = wp_create_nonce( 'csm_dismiss_review_notice' );
+			?>
+			<div class="notice notice-info is-dismissible csm-review-notice">
+				<p>
+					🎉 <strong><?php esc_html_e( 'Thank you for using Custom Shipping Methods for WooCommerce!', 'custom-shipping-methods-for-woocommerce' ); ?></strong><br>
+					<?php esc_html_e( 'If our plugin helps your workflow, please consider', 'custom-shipping-methods-for-woocommerce' ); ?>
+					<a href="https://wordpress.org/support/plugin/custom-shipping-methods-for-woocommerce/reviews/?rate=5#new-post" target="_blank">
+						<?php esc_html_e( 'leaving a 5-star review', 'custom-shipping-methods-for-woocommerce' ); ?>
+					</a> 💖
+				</p>
+			</div>
+			<script>
+			(function($){
+				$(document).on('click', '.csm-review-notice .notice-dismiss', function(){
+					$.post(ajaxurl, {
+						action: 'csm_dismiss_review_notice',
+						_nonce: '<?php echo esc_js( $nonce ); ?>'
+					});
+				});
+			})(jQuery);
+			</script>
+			<?php
+		}
 
+		/**
+		 * Handle AJAX request to dismiss the admin review notice.
+		 *
+		 * @version 1.9.2
+		 * @since   1.9.2
+		 * @return void
+		 */
+		public function csm_dismiss_review_notice() {
+			check_ajax_referer( 'csm_dismiss_review_notice', '_nonce' );
+			update_option( 'csm_review_notice_dismissed', 1 );
+			wp_die();
+		}
 	}
 
 endif;
